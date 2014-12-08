@@ -1,21 +1,6 @@
-#
-# Cookbook Name:: demo
-# Recipe:: default
-#
-# Copyright 2014, YOUR_COMPANY_NAME
-#
-# All rights reserved - Do Not Redistribute
-#
-powershell_script 'Install IIS' do
-  action :run
-  code 'add-windowsfeature Web-Server'
-end
-
-service 'w3svc' do
-  action [ :enable, :start ]
-end
-
-cookbook_file 'c:\inetpub\wwwroot\Default.htm' do
-  source 'Default.htm'
-  rights :read, 'Everyone'
+i = 0
+while i < 40 do
+  sleep 2
+  Chef::Log.warn ("Doing hard work #{i} #{'*' * i}")
+  i += 1
 end
